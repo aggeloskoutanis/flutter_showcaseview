@@ -77,6 +77,7 @@ class Showcase extends StatefulWidget {
   /// [ShowCaseWidget.defaultBlurValue] will be considered.
   ///
   final double? blurValue;
+  final double spaceFactor;
 
   const Showcase({
     required this.key,
@@ -107,6 +108,7 @@ class Showcase extends StatefulWidget {
     this.onTargetDoubleTap,
     this.tipBorderRadius,
     this.disableDefaultTargetGestures = false,
+    this.spaceFactor = 0,
   })  : height = null,
         width = null,
         container = null,
@@ -152,6 +154,7 @@ class Showcase extends StatefulWidget {
     this.onTargetDoubleTap,
     this.tipBorderRadius,
     this.disableDefaultTargetGestures = false,
+    this.spaceFactor = 0,
   })  : showArrow = false,
         onToolTipClick = null,
         assert(overlayOpacity >= 0.0 && overlayOpacity <= 1.0,
@@ -335,26 +338,26 @@ class _ShowcaseState extends State<Showcase> {
                 ),
               if (!_isScrollRunning)
                 ToolTipWidget(
-                  position: position,
-                  offset: offset,
-                  screenSize: screenSize,
-                  title: widget.title,
-                  description: widget.description,
-                  titleTextStyle: widget.titleTextStyle,
-                  descTextStyle: widget.descTextStyle,
-                  container: widget.container,
-                  tooltipColor: widget.showcaseBackgroundColor,
-                  textColor: widget.textColor,
-                  showArrow: widget.showArrow,
-                  contentHeight: widget.height,
-                  contentWidth: widget.width,
-                  onTooltipTap: _getOnTooltipTap,
-                  contentPadding: widget.contentPadding,
-                  disableAnimation: widget.disableAnimation ??
-                      showCaseWidgetState.disableAnimation,
-                  animationDuration: widget.animationDuration,
-                  borderRadius: widget.tipBorderRadius,
-                ),
+                    position: position,
+                    offset: offset,
+                    screenSize: screenSize,
+                    title: widget.title,
+                    description: widget.description,
+                    titleTextStyle: widget.titleTextStyle,
+                    descTextStyle: widget.descTextStyle,
+                    container: widget.container,
+                    tooltipColor: widget.showcaseBackgroundColor,
+                    textColor: widget.textColor,
+                    showArrow: widget.showArrow,
+                    contentHeight: widget.height,
+                    contentWidth: widget.width,
+                    onTooltipTap: _getOnTooltipTap,
+                    contentPadding: widget.contentPadding,
+                    disableAnimation: widget.disableAnimation ??
+                        showCaseWidgetState.disableAnimation,
+                    animationDuration: widget.animationDuration,
+                    borderRadius: widget.tipBorderRadius,
+                    spaceFactor: widget.spaceFactor),
             ],
           )
         : const SizedBox.shrink();

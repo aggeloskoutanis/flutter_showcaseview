@@ -48,6 +48,7 @@ class ToolTipWidget extends StatefulWidget {
   final Duration animationDuration;
   final bool disableAnimation;
   final BorderRadius? borderRadius;
+  final double spaceFactor;
 
   const ToolTipWidget({
     Key? key,
@@ -69,6 +70,7 @@ class ToolTipWidget extends StatefulWidget {
     this.contentPadding = const EdgeInsets.symmetric(vertical: 8),
     required this.disableAnimation,
     required this.borderRadius,
+    required this.spaceFactor,
   }) : super(key: key);
 
   @override
@@ -171,7 +173,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
     } else if (space < (widget.contentWidth! / 2)) {
       space = 16;
     }
-    return space;
+    return widget.spaceFactor * space;
   }
 
   @override
