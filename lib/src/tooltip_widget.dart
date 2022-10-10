@@ -362,7 +362,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
       return Stack(
         children: <Widget>[
           Positioned(
-            left: _getSpace(),
+            left: _getSpace() - 10,
             top: contentY,
             child: FractionalTranslation(
               translation: Offset(0.0, contentFractionalOffset as double),
@@ -378,9 +378,9 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
                   child: GestureDetector(
                     onTap: widget.onTooltipTap,
                     child: Container(
-                      padding: EdgeInsets.only(
-                        top: paddingTop,
-                      ),
+                      // padding: EdgeInsets.only(
+                      //   top: paddingTop,
+                      // ),
                       color: Colors.transparent,
                       child: Center(
                         child: MeasureSize(
