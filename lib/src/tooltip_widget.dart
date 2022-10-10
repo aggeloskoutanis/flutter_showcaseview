@@ -363,7 +363,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
         children: <Widget>[
           Positioned(
             left: _getSpace() - 10,
-            top: contentY,
+            top: contentY - 30,
             child: FractionalTranslation(
               translation: Offset(0.0, contentFractionalOffset as double),
               child: SlideTransition(
