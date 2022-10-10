@@ -223,9 +223,8 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
     final contentOffsetMultiplier = contentOrientation == "BELOW" ? 1.0 : -1.0;
     isArrowUp = contentOffsetMultiplier == 1.0;
 
-    final contentY = isArrowUp
-        ? widget.position!.getBottom() + (contentOffsetMultiplier * 3)
-        : widget.position!.getTop() + (contentOffsetMultiplier * 3);
+    final contentY =
+        isArrowUp ? widget.position!.getBottom() : widget.position!.getTop();
 
     final num contentFractionalOffset =
         contentOffsetMultiplier.clamp(-1.0, 0.0);
@@ -378,9 +377,6 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
                   child: GestureDetector(
                     onTap: widget.onTooltipTap,
                     child: Container(
-                      padding: EdgeInsets.only(
-                        top: paddingTop,
-                      ),
                       color: Colors.transparent,
                       child: Center(
                         child: MeasureSize(
